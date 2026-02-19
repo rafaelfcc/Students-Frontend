@@ -6,7 +6,7 @@ A interface utiliza **Bootstrap** para estilização e componentes visuais, gara
 
 ---
 
-##Tecnologias Utilizadas
+# Tecnologias Utilizadas
 
 - React
 - React Router
@@ -16,7 +16,7 @@ A interface utiliza **Bootstrap** para estilização e componentes visuais, gara
 
 ---
 
-##Autenticação
+# Autenticação
 
 A aplicação inicia com uma **tela de login**.
 
@@ -29,13 +29,13 @@ Após informar as credenciais válidas:
 
 ---
 
-##Gerenciamento de Alunos
+# Gerenciamento de Alunos
 
 Após o login, o usuário tem acesso à tela principal da aplicação.
 
 Nesta tela existem as seguintes funcionalidades:
 
-###Inserir Novo Aluno
+# Inserir Novo Aluno
 
 Botão responsável por abrir um **modal** contendo formulário para cadastro de um novo aluno.
 
@@ -43,7 +43,7 @@ O envio do formulário realiza requisição para a API backend e, em caso de suc
 
 ---
 
-###Importar Alunos via CSV
+# Importar Alunos via CSV
 
 Botão que permite realizar a importação de alunos por meio de um arquivo CSV, conforme especificação descrita na atividade técnica.
 
@@ -65,7 +65,7 @@ Todas as ações são realizadas por meio de **modals (Bootstrap)**, mantendo o 
 
 ---
 
-##Comportamento da Interface
+# Comportamento da Interface
 
 - Interface responsiva com Bootstrap
 - Atualização dinâmica da lista após operações
@@ -75,7 +75,7 @@ Todas as ações são realizadas por meio de **modals (Bootstrap)**, mantendo o 
 
 ---
 
-##Configuração do Ambiente
+# Configuração do Ambiente
 
 ### Instalar dependências
 
