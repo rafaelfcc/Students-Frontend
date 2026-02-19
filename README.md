@@ -1,73 +1,83 @@
-# React + TypeScript + Vite
+# Students Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Frontend da aplicação **Students**, desenvolvido em React, responsável pela autenticação e gerenciamento de alunos através do consumo da API backend.
 
-Currently, two official plugins are available:
+A interface utiliza **Bootstrap** para estilização e componentes visuais, garantindo layout responsivo e experiência consistente.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+##Tecnologias Utilizadas
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React
+- React Router
+- Bootstrap
+- Fetch / Axios (consumo da API)
+- JWT (armazenamento e envio do token para autenticação)
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+##Autenticação
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+A aplicação inicia com uma **tela de login**.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+Após informar as credenciais válidas:
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- O usuário é autenticado via JWT.
+- O token é armazenado na aplicação.
+- O usuário é redirecionado para a tela principal de gerenciamento de alunos.
+- Rotas protegidas impedem acesso direto sem autenticação.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+##Gerenciamento de Alunos
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Após o login, o usuário tem acesso à tela principal da aplicação.
+
+Nesta tela existem as seguintes funcionalidades:
+
+###Inserir Novo Aluno
+
+Botão responsável por abrir um **modal** contendo formulário para cadastro de um novo aluno.
+
+O envio do formulário realiza requisição para a API backend e, em caso de sucesso, a lista é atualizada dinamicamente.
+
+---
+
+###Importar Alunos via CSV
+
+Botão que permite realizar a importação de alunos por meio de um arquivo CSV, conforme especificação descrita na atividade técnica.
+
+O arquivo é enviado para o backend, onde é processado e persistido.
+
+---
+
+##Listagem de Alunos
+
+Após existir um ou mais alunos cadastrados, os registros são exibidos em formato de lista.
+
+Cada item da lista apresenta os seguintes botões de ação:
+
+- **Visualizar**
+- **Editar**
+- **Excluir**
+
+Todas as ações são realizadas por meio de **modals (Bootstrap)**, mantendo o usuário na mesma tela e proporcionando uma experiência fluida.
+
+---
+
+##Comportamento da Interface
+
+- Interface responsiva com Bootstrap
+- Atualização dinâmica da lista após operações
+- Tratamento de erros exibido conforme retorno da API
+- Proteção de rotas via controle de autenticação
+- Uso de modals para operações CRUD
+
+---
+
+##Configuração do Ambiente
+
+### Instalar dependências
+
+```bash
+npm install
